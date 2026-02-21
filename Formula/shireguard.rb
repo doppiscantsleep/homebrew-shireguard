@@ -5,20 +5,20 @@
 class Shireguard < Formula
   desc "WireGuard P2P connectivity"
   homepage "https://shireguard.com"
-  version "0.1.11"
+  version "0.1.12"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/doppiscantsleep/shireguard/releases/download/v0.1.11/shireguard_darwin_amd64.tar.gz"
-      sha256 "c0ebfdfe9f4238cba395caf3e22bee13e19436bac77bd1797ae9e6fd9b32fa2b"
+      url "https://github.com/doppiscantsleep/shireguard/releases/download/v0.1.12/shireguard_darwin_amd64.tar.gz"
+      sha256 "982a0d69a043fe45348fc9c092ddecd4ba099674cc329249c3cace4c335e34db"
 
       def install
         bin.install "shireguard"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/doppiscantsleep/shireguard/releases/download/v0.1.11/shireguard_darwin_arm64.tar.gz"
-      sha256 "6cb510f5024a7b06bc27f92ce0da45e32a1e23649fa4367d4586f81b838651eb"
+      url "https://github.com/doppiscantsleep/shireguard/releases/download/v0.1.12/shireguard_darwin_arm64.tar.gz"
+      sha256 "06de2600c75bf883d52c259cab7ff649d850541af6269224320d732b972c7d35"
 
       def install
         bin.install "shireguard"
@@ -28,15 +28,15 @@ class Shireguard < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/doppiscantsleep/shireguard/releases/download/v0.1.11/shireguard_linux_amd64.tar.gz"
-      sha256 "fb863bf1534332453c6ffd3576676dd924c4d2f3aded61e14895e6a3d03b6541"
+      url "https://github.com/doppiscantsleep/shireguard/releases/download/v0.1.12/shireguard_linux_amd64.tar.gz"
+      sha256 "aeb7c401d7203a26bb7e16f4927396e1bf57f2ef73991c0fc0bdff9058bdaf45"
       def install
         bin.install "shireguard"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/doppiscantsleep/shireguard/releases/download/v0.1.11/shireguard_linux_arm64.tar.gz"
-      sha256 "7ba2b5d8467a3377b5ed31d349caa63aad4e8bead91093196a9ec66051f6a4b2"
+      url "https://github.com/doppiscantsleep/shireguard/releases/download/v0.1.12/shireguard_linux_arm64.tar.gz"
+      sha256 "22041957c000beec7374fd236b7e90024523c07a46f409263312eb1cb2394995"
       def install
         bin.install "shireguard"
       end
