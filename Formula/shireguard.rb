@@ -5,40 +5,128 @@
 class Shireguard < Formula
   desc "WireGuard P2P connectivity"
   homepage "https://shireguard.com"
-  version "0.1.18"
+  version "0.1.19"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/doppiscantsleep/shireguard/releases/download/v0.1.18/shireguard_darwin_amd64.tar.gz"
-      sha256 "02139c52246b734d1dcbe824288907a9a2d3cec21f91ed9143b7aaeeee2fdcef"
+      url "https://github.com/doppiscantsleep/shireguard/releases/download/v0.1.19/shireguard_darwin_amd64.tar.gz"
+      sha256 "34b370b7947e23294e679fe8431268bfcf364099b5d7874aed95656150b7f3ad"
 
       define_method(:install) do
         bin.install "shireguard"
+        bin.install "shireguard-menubar"
+        # Wrap shireguard-menubar into an .app bundle in the prefix
+        app_bundle = prefix/"ShireguardMenuBar.app/Contents/MacOS"
+        app_bundle.mkpath
+        (prefix/"ShireguardMenuBar.app/Contents").install_symlink bin/"shireguard-menubar" => "MacOS/shireguard-menubar"
+        (prefix/"ShireguardMenuBar.app/Contents/Info.plist").write <<~PLIST
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+            "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0">
+          <dict>
+              <key>CFBundleName</key><string>ShireguardMenuBar</string>
+              <key>CFBundleDisplayName</key><string>Shireguard</string>
+              <key>CFBundleIdentifier</key><string>com.shireguard.menubar</string>
+              <key>CFBundleVersion</key><string>1</string>
+              <key>CFBundleExecutable</key><string>shireguard-menubar</string>
+              <key>CFBundlePackageType</key><string>APPL</string>
+              <key>LSUIElement</key><true/>
+              <key>NSHighResolutionCapable</key><true/>
+          </dict>
+          </plist>
+        PLIST
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/doppiscantsleep/shireguard/releases/download/v0.1.18/shireguard_darwin_arm64.tar.gz"
-      sha256 "a34790d0628e5d680c8dc203792dcc3007bbcf6d30b74445b7df4d4bddca970d"
+      url "https://github.com/doppiscantsleep/shireguard/releases/download/v0.1.19/shireguard_darwin_arm64.tar.gz"
+      sha256 "27c98d16dc60eb4a6706ce4891e5af5a777bd2682e6a52f6091ad0d408b101dd"
 
       define_method(:install) do
         bin.install "shireguard"
+        bin.install "shireguard-menubar"
+        # Wrap shireguard-menubar into an .app bundle in the prefix
+        app_bundle = prefix/"ShireguardMenuBar.app/Contents/MacOS"
+        app_bundle.mkpath
+        (prefix/"ShireguardMenuBar.app/Contents").install_symlink bin/"shireguard-menubar" => "MacOS/shireguard-menubar"
+        (prefix/"ShireguardMenuBar.app/Contents/Info.plist").write <<~PLIST
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+            "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0">
+          <dict>
+              <key>CFBundleName</key><string>ShireguardMenuBar</string>
+              <key>CFBundleDisplayName</key><string>Shireguard</string>
+              <key>CFBundleIdentifier</key><string>com.shireguard.menubar</string>
+              <key>CFBundleVersion</key><string>1</string>
+              <key>CFBundleExecutable</key><string>shireguard-menubar</string>
+              <key>CFBundlePackageType</key><string>APPL</string>
+              <key>LSUIElement</key><true/>
+              <key>NSHighResolutionCapable</key><true/>
+          </dict>
+          </plist>
+        PLIST
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/doppiscantsleep/shireguard/releases/download/v0.1.18/shireguard_linux_amd64.tar.gz"
-      sha256 "b7d75a86ee203e21ebaf5c57b2245476950bd49520c1728b7aa2b715a823c217"
+      url "https://github.com/doppiscantsleep/shireguard/releases/download/v0.1.19/shireguard_linux_amd64.tar.gz"
+      sha256 "a5d53e01b7cea010a162cb5a5b01293b859f4541e0fae94e65e2143056054ce4"
       define_method(:install) do
         bin.install "shireguard"
+        bin.install "shireguard-menubar"
+        # Wrap shireguard-menubar into an .app bundle in the prefix
+        app_bundle = prefix/"ShireguardMenuBar.app/Contents/MacOS"
+        app_bundle.mkpath
+        (prefix/"ShireguardMenuBar.app/Contents").install_symlink bin/"shireguard-menubar" => "MacOS/shireguard-menubar"
+        (prefix/"ShireguardMenuBar.app/Contents/Info.plist").write <<~PLIST
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+            "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0">
+          <dict>
+              <key>CFBundleName</key><string>ShireguardMenuBar</string>
+              <key>CFBundleDisplayName</key><string>Shireguard</string>
+              <key>CFBundleIdentifier</key><string>com.shireguard.menubar</string>
+              <key>CFBundleVersion</key><string>1</string>
+              <key>CFBundleExecutable</key><string>shireguard-menubar</string>
+              <key>CFBundlePackageType</key><string>APPL</string>
+              <key>LSUIElement</key><true/>
+              <key>NSHighResolutionCapable</key><true/>
+          </dict>
+          </plist>
+        PLIST
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/doppiscantsleep/shireguard/releases/download/v0.1.18/shireguard_linux_arm64.tar.gz"
-      sha256 "186ca61ba40573c52c8d6501fa2cacf35aee093b478211b490cc945ebcf4e874"
+      url "https://github.com/doppiscantsleep/shireguard/releases/download/v0.1.19/shireguard_linux_arm64.tar.gz"
+      sha256 "1aaee4108b858ce94d2c847fa9828c04aafe008c7d47192d79de1238dbfd8b11"
       define_method(:install) do
         bin.install "shireguard"
+        bin.install "shireguard-menubar"
+        # Wrap shireguard-menubar into an .app bundle in the prefix
+        app_bundle = prefix/"ShireguardMenuBar.app/Contents/MacOS"
+        app_bundle.mkpath
+        (prefix/"ShireguardMenuBar.app/Contents").install_symlink bin/"shireguard-menubar" => "MacOS/shireguard-menubar"
+        (prefix/"ShireguardMenuBar.app/Contents/Info.plist").write <<~PLIST
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+            "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0">
+          <dict>
+              <key>CFBundleName</key><string>ShireguardMenuBar</string>
+              <key>CFBundleDisplayName</key><string>Shireguard</string>
+              <key>CFBundleIdentifier</key><string>com.shireguard.menubar</string>
+              <key>CFBundleVersion</key><string>1</string>
+              <key>CFBundleExecutable</key><string>shireguard-menubar</string>
+              <key>CFBundlePackageType</key><string>APPL</string>
+              <key>LSUIElement</key><true/>
+              <key>NSHighResolutionCapable</key><true/>
+          </dict>
+          </plist>
+        PLIST
       end
     end
   end
