@@ -5,12 +5,12 @@
 class Shireguard < Formula
   desc "WireGuard P2P connectivity"
   homepage "https://shireguard.com"
-  version "0.1.40"
+  version "0.1.41"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/doppiscantsleep/shireguard/releases/download/v0.1.40/shireguard_darwin_amd64.tar.gz"
-      sha256 "77cd7978c6d402f08df8f66fdc5b4a39d5797a23b4a753c5db4be9307bcf643c"
+      url "https://github.com/doppiscantsleep/shireguard/releases/download/v0.1.41/shireguard_darwin_amd64.tar.gz"
+      sha256 "a9aa150c9c7d7edceeb1b79ace7e2c5d72c3cfd3d0d53b4374950ffef31f5afb"
 
       define_method(:install) do
         bin.install "shireguard"
@@ -39,8 +39,8 @@ class Shireguard < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/doppiscantsleep/shireguard/releases/download/v0.1.40/shireguard_darwin_arm64.tar.gz"
-      sha256 "99f2e851c9f0bfd5ef5b1a7e0fa7e2e2d01709c084695ac6c785d60a4146d4df"
+      url "https://github.com/doppiscantsleep/shireguard/releases/download/v0.1.41/shireguard_darwin_arm64.tar.gz"
+      sha256 "2511f8952105c4f8e0bb2737983d108bef67dc1e48d03f9dca83b52d76a5afe5"
 
       define_method(:install) do
         bin.install "shireguard"
@@ -72,8 +72,8 @@ class Shireguard < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/doppiscantsleep/shireguard/releases/download/v0.1.40/shireguard_linux_amd64.tar.gz"
-      sha256 "2a974fd50f1b035b5a716a1845c81ae3e6c4114b88bab42281170341ee42afd5"
+      url "https://github.com/doppiscantsleep/shireguard/releases/download/v0.1.41/shireguard_linux_amd64.tar.gz"
+      sha256 "e9bfef1212997f8b60d8cc0d963ab15139536b1e72380926ff6dc38f7975ddc5"
       define_method(:install) do
         bin.install "shireguard"
         bin.install "shireguard-menubar"
@@ -101,8 +101,8 @@ class Shireguard < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/doppiscantsleep/shireguard/releases/download/v0.1.40/shireguard_linux_arm64.tar.gz"
-      sha256 "40538e1f1646ddbcebdff8c9d99d84f7e4adf764fdbefd61e780aa2f3be6e35a"
+      url "https://github.com/doppiscantsleep/shireguard/releases/download/v0.1.41/shireguard_linux_arm64.tar.gz"
+      sha256 "26d85ffdb89d6eb65ba582dcc5cac67c76885ec622f26c372d35c0359f855d66"
       define_method(:install) do
         bin.install "shireguard"
         bin.install "shireguard-menubar"
